@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "../../components/header";
+import styles from "./index.module.scss";
 
 const Layout = ({ children }) => {
   return (
@@ -11,7 +12,7 @@ const Layout = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header></Header>
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
     </>
   );
 };

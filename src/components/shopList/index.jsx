@@ -1,9 +1,9 @@
 import styles from "./index.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 const ShopList = (props) => {
   const shopList = props.shopList;
-  console.log(shopList);
   return (
     <>
       <ul className={styles.shoplist}>
@@ -20,9 +20,14 @@ const ShopList = (props) => {
                     className={styles.shoplist__img}
                   />
                   <div className={styles["shoplist__top-text"]}>
-                    <h2 className={styles.shoplist__name}>{shop["name"]}</h2>
+                    <h2 className={styles.shoplist__name}>
+                      <Link href={`shops/${shop["id"]}`} shop={shop}>
+                        {shop["name"]}
+                      </Link>
+                    </h2>
                     <h3 className={styles.shoplist__genre}>
-                      {shop["genre"][0]["name"]} / {shop["genre"][0]["catch"]}
+                      {shop["genre"][0]["name"]} <br />{" "}
+                      {shop["genre"][0]["catch"]}
                     </h3>
                   </div>
                 </div>

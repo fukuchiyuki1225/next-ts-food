@@ -1,22 +1,14 @@
 import Head from "next/head";
 import Header from "../components/header";
 import ShopList from "../components/shopList";
+import Layout from "../layouts/layout/layout";
 
 export default function Home(props) {
   const shopList = props.result;
   return (
-    <>
-      <Head>
-        <title>えびすごはん</title>
-        <meta name="description" content="恵比寿のごはんを記録しましょう！" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Header></Header>
-      <main>
-        <ShopList shopList={shopList}></ShopList>
-      </main>
-    </>
+    <Layout>
+      <ShopList shopList={shopList}></ShopList>
+    </Layout>
   );
 }
 

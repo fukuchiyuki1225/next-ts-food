@@ -267,6 +267,7 @@ legend {
 img {
   border-style: none; /* Remove border when inside `a` element in IE 8/9/10 */
   width: 100%;
+  height: auto;
 }
 
 /* Add the correct vertical alignment in Chrome, Firefox, and Opera */
@@ -299,4 +300,13 @@ li {
 
 a {
   text-decoration: none;
+}
+
+.basic-inner {
+  margin: 0 auto;
+  width: calc(340 / 375 * 100%);
+}
+
+body {
+  background-color: #fff3e8;
 }

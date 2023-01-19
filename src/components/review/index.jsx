@@ -1,7 +1,17 @@
+import { useState } from "react";
 import styles from "./index.module.scss";
 import Image from "next/image";
+import Modal from "../modal";
 
 const Review = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [openImg, setOpenImg] = useState("");
+
+  const toggleModal = (openImg) => {
+    setIsOpen(!isOpen);
+    setOpenImg(openImg);
+  };
+
   return (
     <div className={styles.review}>
       <div className={styles["review__top-container"]}>
@@ -65,37 +75,80 @@ const Review = () => {
         </dl>
       </div>
       <div className={styles["review__img-container"]}>
-        <div className={styles["review__img-wrapper"]}>
+        <button
+          onClick={() => {
+            toggleModal("/img/img_example-omochi.jpeg");
+          }}
+          className={styles["review__img-wrapper"]}
+        >
           <Image
             src="/img/img_example-omochi.jpeg"
-            width={345}
-            height={345}
-            alt
+            width={128}
+            height={96}
+            alt="ごはんイメージ"
             className={styles.review__img}
           />
-        </div>
-        <div className={styles["review__img-wrapper"]}>
+        </button>
+        <button
+          onClick={() => {
+            toggleModal("/img/img_example-omochi2.jpeg");
+          }}
+          className={styles["review__img-wrapper"]}
+        >
           <Image
             src="/img/img_example-omochi2.jpeg"
-            width={345}
-            height={345}
-            alt
+            width={128}
+            height={96}
+            alt="ごはんイメージ"
             className={styles.review__img}
           />
-        </div>
-        <div className={styles["review__img-wrapper"]}>
+        </button>
+        <button
+          onClick={() => {
+            toggleModal("/img/img_example-omochi3.jpeg");
+          }}
+          className={styles["review__img-wrapper"]}
+        >
           <Image
             src="/img/img_example-omochi3.jpeg"
-            width={345}
-            height={345}
-            alt
+            width={128}
+            height={96}
+            alt="ごはんイメージ"
             className={styles.review__img}
           />
-        </div>
+        </button>
       </div>
       <p className={styles.review__body}>
         お店の雰囲気がよく、ご飯も美味しく、さらにリーズナブルで最高でした。また行きたいです〜
       </p>
+      {isOpen ? (
+        <Modal>
+          <div className={styles["review__modal-container"]}>
+            <Image
+              src={openImg}
+              width={345}
+              height={345}
+              alt="ごはんイメージ"
+              className={styles["review__modal-img"]}
+            />
+            <button
+              className={styles["review__modal-close"]}
+              onClick={() => {
+                toggleModal(openImg);
+              }}
+            >
+              <Image
+                src={"/img/icon_close.png"}
+                width={30}
+                height={30}
+                alt="とじる"
+              />
+            </button>
+          </div>
+        </Modal>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

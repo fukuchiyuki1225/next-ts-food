@@ -1,10 +1,16 @@
 import Image from "next/image";
 import styles from "./index.module.scss";
+import Link from "next/link";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className={styles.header}>
       <div className={styles.header__inner}>
+        {props.layout !== "main" ? (
+          <Link href="/" className={styles.header__back}></Link>
+        ) : (
+          ""
+        )}
         <div className={styles.header__titleContainer}>
           <h1 className={styles.header__text}>えびすごはん</h1>
           <Image

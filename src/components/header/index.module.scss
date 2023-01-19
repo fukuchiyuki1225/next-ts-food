@@ -6,39 +6,64 @@
   background-color: rgba(#fff, 0.8);
   box-shadow: 0 5px 10px rgba(#000, 0.1);
   border-radius: 0 0 10px 10px;
+
   &__inner {
     padding: 10px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    width: 100%;
+    position: relative;
   }
+
   &__titleContainer {
     display: flex;
     align-items: center;
     gap: 3px;
   }
+
   &__text {
     font-size: 2.5rem;
     font-weight: 500;
     color: #4b4b4b;
   }
+
   &__icon {
     width: 25px;
     height: 25px;
   }
+
   &__loginContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: absolute;
+    top: 53%;
+    right: 10px;
+    transform: translateY(-50%);
   }
+
   &__loginIcon {
     width: 18px;
     height: 18px;
   }
+
   &__loginText {
     font-size: 1rem;
     font-weight: 400;
     width: fit-content;
+  }
+
+  &__back {
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #4b4b4b;
+    border-left: 2px solid #4b4b4b;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%) rotate(-45deg);
   }
 }

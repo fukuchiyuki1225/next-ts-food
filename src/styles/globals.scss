@@ -322,6 +322,17 @@ button {
   text-align: left;
 }
 
+.star-container {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.star {
+  width: 20px;
+  height: 20px;
+}
+
 .orange-button {
   background-color: #f08300;
   text-align: center;

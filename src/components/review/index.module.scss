@@ -15,34 +15,25 @@
     justify-content: space-between;
   }
 
-  &__star-container {
-    display: flex;
-    align-items: center;
-  }
-
-  &__star {
-    width: 20px;
-    height: 20px;
-  }
-
   &__title {
     margin-top: 5px;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   &__dl {
     width: fit-content;
     max-width: 56%;
     flex-shrink: 0;
+    font-size: 1.2rem;
   }
 
   &__item {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
   }
 
   &__dt {
-    width: 70px;
+    width: 85px;
     text-align: right;
   }
 
@@ -74,7 +65,7 @@
 
   &__body {
     margin-top: 10px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   &__modal-container {

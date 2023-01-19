@@ -1,12 +1,14 @@
 import Shop from "../../components/shop";
 import Review from "../../components/review";
 import styles from "../../styles/ShopDetail.module.scss";
+import { useRouter } from "next/router";
 
 const ShopDetail = (props) => {
   console.log(props);
   const shop = props.shop[0];
+  const router = useRouter();
   return (
-    <>
+    <div className={styles["review-list"]}>
       <div className="item-box">
         <Shop shop={shop}></Shop>
       </div>
@@ -19,21 +21,26 @@ const ShopDetail = (props) => {
           </ul>
         </div>
       </div>
-      <div
+      <button
         className={`orange-button basic-inner ${styles["review-list__button"]}`}
+        onClick={() => {
+          router.push({
+            pathname: "/writeReview",
+            query: { id: shop.id, name: shop.name },
+          });
+        }}
       >
-        <button
+        <span
           className={`orange-button__text ${styles["review-list__button-text"]}`}
         >
           感想を書く
-        </button>
-      </div>
-    </>
+        </span>
+      </button>
+    </div>
   );
 };
 
 export const getServerSideProps = async (context) => {
-  console.log(context);
   const url = `http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=82f1e6c8321eb67e&id=${context.query.id}`;
   const res = await fetch(encodeURI(url));
   const resText = await res.text();
@@ -47,7 +54,7 @@ export const getServerSideProps = async (context) => {
     }
   });
 
-  return { props: { shop: result } };
+  return { props: { shop: result, backTo: "/" } };
 };
 
 export default ShopDetail;

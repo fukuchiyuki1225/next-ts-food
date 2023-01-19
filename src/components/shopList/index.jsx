@@ -10,6 +10,7 @@ const ShopList = (props) => {
         {shopList.map((shop) => {
           return (
             <button
+              key={shop["id"]}
               className="item-box"
               onClick={() => {
                 router.push({

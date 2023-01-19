@@ -1,0 +1,86 @@
+.write-review {
+  color: #4b4b4b;
+
+  &__title {
+    font-size: 1.8rem;
+  }
+
+  &__star-input {
+    display: none;
+  }
+
+  &__star {
+    cursor: pointer;
+  }
+
+  &__form {
+    margin-top: 20px;
+  }
+
+  &__item {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__label {
+    text-align: left;
+    font-size: 1.4rem;
+    width: 95px;
+    cursor: pointer;
+    &--username {
+      @extend .write-review__label;
+      padding-left: 13px;
+      position: relative;
+      &::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        display: block;
+        border: 1px solid #f08300;
+        border-radius: 50%;
+        position: absolute;
+        top: 53%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+      &::after {
+        content: "";
+        width: 6px;
+        height: 6px;
+        display: block;
+        border: 1px solid #f08300;
+        background-color: #f08300;
+        border-radius: 50%;
+        position: absolute;
+        top: 53%;
+        left: 2px;
+        transform: translateY(-50%);
+        opacity: 0;
+      }
+    }
+  }
+
+  &__input {
+    &::placeholder {
+      color: #b4b4b4;
+      font-size: 1.4rem;
+    }
+    &--title,
+    &--food {
+      @extend .write-review__input;
+      flex: 1;
+    }
+    &--username {
+      @extend .write-review__input;
+      display: none;
+      &:checked {
+        + .write-review__label {
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

@@ -16,41 +16,41 @@ const Review = () => {
     <div className={styles.review}>
       <div className={styles["review__top-container"]}>
         <div className={styles["review__left-contents"]}>
-          <div className={styles["review__star-container"]}>
+          <div className="star-container">
             <Image
               src="/img/icon_filled-star.png"
               width={32}
               height={32}
               alt="星"
-              className={styles.review__star}
+              className="star"
             />
             <Image
               src="/img/icon_filled-star.png"
               width={32}
               height={32}
               alt="星"
-              className={styles.review__star}
+              className="star"
             />
             <Image
               src="/img/icon_filled-star.png"
               width={32}
               height={32}
               alt="星"
-              className={styles.review__star}
+              className="star"
             />
             <Image
               src="/img/icon_filled-star.png"
               width={32}
               height={32}
               alt="星"
-              className={styles.review__star}
+              className="star"
             />
             <Image
               src="/img/icon_star.png"
               width={32}
               height={32}
               alt="星"
-              className={styles.review__star}
+              className="star"
             />
           </div>
           <h3 className={styles.review__title}>おいしかった〜</h3>

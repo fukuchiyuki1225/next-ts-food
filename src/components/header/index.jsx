@@ -6,8 +6,8 @@ const Header = (props) => {
   return (
     <header className={styles.header}>
       <div className={styles.header__inner}>
-        {props.layout !== "main" ? (
-          <Link href="/" className={styles.header__back}></Link>
+        {props.backTo !== "" ? (
+          <Link href={props.backTo} className={styles.header__back}></Link>
         ) : (
           ""
         )}

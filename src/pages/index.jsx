@@ -6,7 +6,6 @@ export default function Home(props) {
 }
 
 export const getStaticProps = async () => {
-  console.log("a");
   const url = `http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=82f1e6c8321eb67e&address=恵比寿&count=100`;
   const res = await fetch(encodeURI(url));
   const resText = await res.text();
@@ -20,5 +19,5 @@ export const getStaticProps = async () => {
     }
   });
 
-  return { props: { layout: "main", result: result } };
+  return { props: { result: result, backTo: "" } };
 };

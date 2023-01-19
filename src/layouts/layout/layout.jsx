@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header layout={children.props.layout}></Header>
+      <Header backTo={children.props.backTo}></Header>
       <main className={styles.main}>{children}</main>
     </>
   );

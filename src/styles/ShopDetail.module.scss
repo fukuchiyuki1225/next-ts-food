@@ -3,4 +3,27 @@
     color: #4b4b4b;
     font-size: 1.8rem;
   }
+
+  &__button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__button-text {
+    padding-right: 25px;
+    position: relative;
+    &::after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-image: url("/img/icon_writing.png");
+      background-size: contain;
+      position: absolute;
+      top: 55%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+  }
 }

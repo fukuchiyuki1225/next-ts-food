@@ -321,3 +321,17 @@ body {
 button {
   text-align: left;
 }
+
+.orange-button {
+  background-color: #f08300;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.2);
+
+  &__text {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #fff;
+  }
+}

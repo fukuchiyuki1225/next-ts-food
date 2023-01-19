@@ -10,7 +10,7 @@ const ShopDetail = (props) => {
       <div className="item-box">
         <Shop shop={shop}></Shop>
       </div>
-      <div className={(styles["review-list"], "item-box")}>
+      <div className="item-box">
         <div className="basic-inner">
           <h2 className={styles["review-list__title"]}>みんなの感想</h2>
           <ul className={styles["review-list__list"]}>
@@ -18,6 +18,15 @@ const ShopDetail = (props) => {
             <Review></Review>
           </ul>
         </div>
+      </div>
+      <div
+        className={`orange-button basic-inner ${styles["review-list__button"]}`}
+      >
+        <button
+          className={`orange-button__text ${styles["review-list__button-text"]}`}
+        >
+          感想を書く
+        </button>
       </div>
     </>
   );

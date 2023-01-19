@@ -12,8 +12,11 @@ const ShopDetail = (props) => {
       </div>
       <div className={(styles["review-list"], "item-box")}>
         <div className="basic-inner">
-          <h2 className={styles["review-list__title"]}>ごはんの感想</h2>
-          <Review></Review>
+          <h2 className={styles["review-list__title"]}>みんなの感想</h2>
+          <ul className={styles["review-list__list"]}>
+            <Review></Review>
+            <Review></Review>
+          </ul>
         </div>
       </div>
     </>

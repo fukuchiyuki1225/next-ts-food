@@ -1,6 +1,6 @@
-import styles from "../styles/WriteReview.module.scss";
-import Image from "next/image";
-import { useState } from "react";
+import styles from "../../styles/writeReview/index.module.scss";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const WriteReview = (props) => {
   const [star, setStar] = useState("1");
@@ -9,6 +9,8 @@ const WriteReview = (props) => {
   const [food, setFood] = useState("");
   const [date, setDate] = useState("");
   const [image, setImage] = useState("");
+  const [textarea, setTextarea] = useState("");
+  const [msg, setMsg] = useState([]);
 
   const filledStarClassName = `${styles["write-review__star"]} ${styles["write-review__star--filled"]}`;
   const starClassName = `${styles["write-review__star"]}`;
@@ -21,11 +23,14 @@ const WriteReview = (props) => {
     starClassName,
   ]);
 
+  const router = useRouter();
+
   const onSubmit = () => {
     console.log("submit");
   };
 
   const onChangeStar = (newStar) => {
+    setStar(newStar);
     const newStarClass = [];
     for (let i = 1; i <= starClass.length; i++) {
       if (i <= newStar) {
@@ -37,12 +42,43 @@ const WriteReview = (props) => {
     setStarClass(newStarClass);
   };
 
+  const validate = () => {
+    let msg = [];
+    if (title.length === 0) {
+      msg.push("タイトルを入力してください");
+    }
+    if (food.length === 0) {
+      msg.push("食べたごはんを入力してください");
+    }
+    console.log(textarea.length);
+    if (textarea.length === 0) {
+      msg.push("ごはんの感想を入力してください");
+    }
+
+    if (msg.length === 0) {
+      return true;
+    } else {
+      setMsg(msg);
+      return false;
+    }
+  };
+
+  useEffect(() => {
+    if (props.star !== "") onChangeStar(props.star);
+    if (props.title !== "") setTitle(props.title);
+    if (props.name !== "") setName(props.name);
+    if (props.food !== "") setFood(props.food);
+    if (props.date !== "") setDate(props.date);
+    if (props.image !== "") setImage(props.image);
+    if (props.textarea !== "") setTextarea(props.textarea);
+  }, []);
+
   return (
     <div className={styles["write-review"]}>
       <div className="item-box">
         <div className="basic-inner">
           <h2 className={styles["write-review__title"]}>
-            {props.name}
+            {props.shopName}
             <br />
             のごはんの感想を書く！
           </h2>
@@ -52,6 +88,19 @@ const WriteReview = (props) => {
             }}
             className={styles["write-review__form"]}
           >
+            {msg.length !== 0 ? (
+              <div className={styles["write-review__msg-container"]}>
+                {msg.map((value, index) => {
+                  return (
+                    <div key={index} className={styles["write-review__msg"]}>
+                      {value}
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              ""
+            )}
             <div className={styles["write-review__item"]}>
               <p className={styles["write-review__label"]}>星</p>
               <div className="star-container">
@@ -61,9 +110,7 @@ const WriteReview = (props) => {
                   name="star"
                   value="1"
                   onChange={(e) => {
-                    const newStar = e.target.value;
-                    setStar(newStar);
-                    onChangeStar(newStar);
+                    onChangeStar(e.target.value);
                   }}
                   defaultChecked={true}
                   className={styles["write-review__star-input"]}
@@ -75,9 +122,7 @@ const WriteReview = (props) => {
                   name="star"
                   value="2"
                   onChange={(e) => {
-                    const newStar = e.target.value;
-                    setStar(newStar);
-                    onChangeStar(newStar);
+                    onChangeStar(e.target.value);
                   }}
                   className={styles["write-review__star-input"]}
                 />
@@ -88,9 +133,7 @@ const WriteReview = (props) => {
                   name="star"
                   value="3"
                   onChange={(e) => {
-                    const newStar = e.target.value;
-                    setStar(newStar);
-                    onChangeStar(newStar);
+                    onChangeStar(e.target.value);
                   }}
                   className={styles["write-review__star-input"]}
                 />
@@ -101,9 +144,7 @@ const WriteReview = (props) => {
                   name="star"
                   value="4"
                   onChange={(e) => {
-                    const newStar = e.target.value;
-                    setStar(newStar);
-                    onChangeStar(newStar);
+                    onChangeStar(e.target.value);
                   }}
                   className={styles["write-review__star-input"]}
                 />
@@ -114,9 +155,7 @@ const WriteReview = (props) => {
                   name="star"
                   value="5"
                   onChange={(e) => {
-                    const newStar = e.target.value;
-                    setStar(newStar);
-                    onChangeStar(newStar);
+                    onChangeStar(e.target.value);
                   }}
                   className={styles["write-review__star-input"]}
                 />
@@ -214,14 +253,57 @@ const WriteReview = (props) => {
                 accept="image/jpeg, image/jpg, image/png"
                 className={styles["write-review__input"]}
                 onChange={(e) => {
-                  setImage(e.target.value);
+                  setImage(e.target.files);
                 }}
                 multiple
+              />
+            </div>
+            <div className={styles["write-review__item"]}>
+              <label
+                htmlFor="textarea"
+                className={styles["write-review__label"]}
+              >
+                ごはんの感想
+              </label>
+              <textarea
+                id="textarea"
+                name="textarea"
+                className={styles["write-review__input--textarea"]}
+                value={textarea}
+                onChange={(e) => {
+                  setTextarea(e.target.value);
+                }}
               />
             </div>
           </form>
         </div>
       </div>
+      <button
+        className={`orange-button basic-inner ${styles["write-review__button"]}`}
+        type="submit"
+        onClick={() => {
+          if (!validate()) return;
+          router.push(
+            {
+              pathname: "/writeReview/confirm/",
+              query: {
+                id: props.id,
+                shopName: props.shopName,
+                star: star,
+                title: title,
+                name: name,
+                food: food,
+                date: date,
+                image: image,
+                textarea: textarea,
+              },
+            },
+            "/writeReview/confirm/"
+          );
+        }}
+      >
+        <span className={`orange-button__text`}>入力内容を確認</span>
+      </button>
     </div>
   );
 };
@@ -230,7 +312,15 @@ export const getServerSideProps = (context) => {
   return {
     props: {
       id: context.query.id,
+      shopName: context.query.shopName,
       name: context.query.name,
+      star: context.query.star,
+      title: context.query.title,
+      name: context.query.name,
+      food: context.query.food,
+      date: context.query.date,
+      image: context.query.image,
+      textarea: context.query.textarea,
       backTo: `/shops/${context.query.id}`,
     },
   };

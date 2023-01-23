@@ -1,0 +1,13 @@
+.confirm-review {
+  &__title {
+    font-size: 1.8rem;
+  }
+
+  &__dl {
+    margin-top: 20px;
+  }
+
+  &__item {
+    display: flex;
+  }
+}

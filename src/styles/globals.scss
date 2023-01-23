@@ -346,3 +346,13 @@ button {
     color: #fff;
   }
 }
+
+.white-button {
+  @extend .orange-button;
+  background-color: #fff;
+
+  &__text {
+    @extend .orange-button__text;
+    color: #f08300;
+  }
+}

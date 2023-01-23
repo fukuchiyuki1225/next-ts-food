@@ -1,12 +1,12 @@
 import Shop from "../../components/shop";
 import Review from "../../components/review";
-import styles from "../../styles/ShopDetail.module.scss";
+import styles from "../../styles/shops/index.module.scss";
 import { useRouter } from "next/router";
 
 const ShopDetail = (props) => {
-  console.log(props);
   const shop = props.shop[0];
   const router = useRouter();
+
   return (
     <div className={styles["review-list"]}>
       <div className="item-box">
@@ -24,10 +24,23 @@ const ShopDetail = (props) => {
       <button
         className={`orange-button basic-inner ${styles["review-list__button"]}`}
         onClick={() => {
-          router.push({
-            pathname: "/writeReview",
-            query: { id: shop.id, name: shop.name },
-          });
+          router.push(
+            {
+              pathname: "/writeReview",
+              query: {
+                id: shop.id,
+                shopName: shop.name,
+                star: "",
+                title: "",
+                name: "",
+                food: "",
+                date: "",
+                image: "",
+                textarea: "",
+              },
+            },
+            "/writeReview"
+          );
         }}
       >
         <span
@@ -54,7 +67,12 @@ export const getServerSideProps = async (context) => {
     }
   });
 
-  return { props: { shop: result, backTo: "/" } };
+  return {
+    props: {
+      shop: result,
+      backTo: "/",
+    },
+  };
 };
 
 export default ShopDetail;

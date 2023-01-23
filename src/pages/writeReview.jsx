@@ -1,20 +1,40 @@
 import styles from "../styles/WriteReview.module.scss";
 import Image from "next/image";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useState } from "react";
 
 const WriteReview = (props) => {
-  const { register, handleSubmit } = useForm({
-    defaultValues: {
-      star: "1",
-      title: "",
-      username: "ユーザー名",
-      food: "",
-      date: "",
-      image: "",
-    },
-  });
-  const onSubmit = (d) => {
-    console.log(d);
+  const [star, setStar] = useState("1");
+  const [title, setTitle] = useState("");
+  const [name, setName] = useState("username");
+  const [food, setFood] = useState("");
+  const [date, setDate] = useState("");
+  const [image, setImage] = useState("");
+
+  const filledStarClassName = `${styles["write-review__star"]} ${styles["write-review__star--filled"]}`;
+  const starClassName = `${styles["write-review__star"]}`;
+
+  const [starClass, setStarClass] = useState([
+    filledStarClassName,
+    starClassName,
+    starClassName,
+    starClassName,
+    starClassName,
+  ]);
+
+  const onSubmit = () => {
+    console.log("submit");
+  };
+
+  const onChangeStar = (newStar) => {
+    const newStarClass = [];
+    for (let i = 1; i <= starClass.length; i++) {
+      if (i <= newStar) {
+        newStarClass.push(filledStarClassName);
+      } else {
+        newStarClass.push(starClassName);
+      }
+    }
+    setStarClass(newStarClass);
   };
 
   return (
@@ -27,126 +47,110 @@ const WriteReview = (props) => {
             のごはんの感想を書く！
           </h2>
           <form
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={() => {
+              onSubmit();
+            }}
             className={styles["write-review__form"]}
           >
             <div className={styles["write-review__item"]}>
-              <lebel className={styles["write-review__label"]}>星</lebel>
+              <p className={styles["write-review__label"]}>星</p>
               <div className="star-container">
                 <input
                   id="star1"
                   type="radio"
                   name="star"
                   value="1"
-                  className={styles["write-review__star-input"]}
-                  checked
-                  onChange={() => {
-                    console.log("change");
+                  onChange={(e) => {
+                    const newStar = e.target.value;
+                    setStar(newStar);
+                    onChangeStar(newStar);
                   }}
+                  defaultChecked={true}
+                  className={styles["write-review__star-input"]}
                 />
-                <label htmlFor="star1" className={styles["write-review__star"]}>
-                  <Image
-                    src="/img/icon_filled-star.png"
-                    width={32}
-                    height={32}
-                    alt="星"
-                    className="star"
-                  />
-                </label>
+                <label htmlFor="star1" className={starClass[0]}></label>
                 <input
                   id="star2"
                   type="radio"
                   name="star"
                   value="2"
+                  onChange={(e) => {
+                    const newStar = e.target.value;
+                    setStar(newStar);
+                    onChangeStar(newStar);
+                  }}
                   className={styles["write-review__star-input"]}
                 />
-                <label htmlFor="star2" className={styles["write-review__star"]}>
-                  <Image
-                    src="/img/icon_star.png"
-                    width={32}
-                    height={32}
-                    alt="星"
-                    className="star"
-                  />
-                </label>
+                <label htmlFor="star2" className={starClass[1]}></label>
                 <input
                   id="star3"
                   type="radio"
                   name="star"
                   value="3"
+                  onChange={(e) => {
+                    const newStar = e.target.value;
+                    setStar(newStar);
+                    onChangeStar(newStar);
+                  }}
                   className={styles["write-review__star-input"]}
                 />
-                <label htmlFor="star3" className={styles["write-review__star"]}>
-                  <Image
-                    src="/img/icon_star.png"
-                    width={32}
-                    height={32}
-                    alt="星"
-                    className="star"
-                  />
-                </label>
+                <label htmlFor="star3" className={starClass[2]}></label>
                 <input
                   id="star4"
                   type="radio"
                   name="star"
                   value="4"
+                  onChange={(e) => {
+                    const newStar = e.target.value;
+                    setStar(newStar);
+                    onChangeStar(newStar);
+                  }}
                   className={styles["write-review__star-input"]}
                 />
-                <label htmlFor="star4" className={styles["write-review__star"]}>
-                  <Image
-                    src="/img/icon_star.png"
-                    width={32}
-                    height={32}
-                    alt="星"
-                    className="star"
-                  />
-                </label>
+                <label htmlFor="star4" className={starClass[3]}></label>
                 <input
                   id="star5"
                   type="radio"
                   name="star"
                   value="5"
+                  onChange={(e) => {
+                    const newStar = e.target.value;
+                    setStar(newStar);
+                    onChangeStar(newStar);
+                  }}
                   className={styles["write-review__star-input"]}
                 />
-                <label htmlFor="star5" className={styles["write-review__star"]}>
-                  <Image
-                    src="/img/icon_star.png"
-                    width={32}
-                    height={32}
-                    alt="星"
-                    className="star"
-                  />
-                </label>
+                <label htmlFor="star5" className={starClass[4]}></label>
               </div>
             </div>
             <div className={styles["write-review__item"]}>
-              <lebel htmlFor="title" className={styles["write-review__label"]}>
+              <label htmlFor="title" className={styles["write-review__label"]}>
                 タイトル
-              </lebel>
+              </label>
               <input
                 id="title"
                 type="text"
                 name="title"
-                value=""
+                value={title}
                 placeholder="感想をひとことで！"
                 className={styles["write-review__input--title"]}
-                onChange={() => {
-                  console.log("change");
+                onChange={(e) => {
+                  setTitle(e.target.value);
                 }}
               />
             </div>
             <div className={styles["write-review__item"]}>
-              <lebel className={styles["write-review__label"]}>投稿者名</lebel>
+              <p className={styles["write-review__label"]}>投稿者名</p>
               <input
                 id="username"
                 type="radio"
                 name="name"
-                value="ユーザー名"
-                className={styles["write-review__input--username"]}
-                onChange={() => {
-                  console.log("change");
+                value="username"
+                defaultChecked={true}
+                onChange={(e) => {
+                  setName(e.target.value);
                 }}
-                checked
+                className={styles["write-review__input--username"]}
               />
               <label
                 htmlFor="username"
@@ -169,50 +173,50 @@ const WriteReview = (props) => {
               </label>
             </div>
             <div className={styles["write-review__item"]}>
-              <lebel htmlFor="food" className={styles["write-review__label"]}>
+              <label htmlFor="food" className={styles["write-review__label"]}>
                 食べたごはん
-              </lebel>
+              </label>
               <input
                 id="food"
                 type="text"
                 name="food"
-                value=""
+                value={food}
                 placeholder="何を食べましたか？"
                 className={styles["write-review__input--food"]}
-                onChange={() => {
-                  console.log("change");
+                onChange={(e) => {
+                  setFood(e.target.value);
                 }}
               />
             </div>
             <div className={styles["write-review__item"]}>
-              <lebel htmlFor="date" className={styles["write-review__label"]}>
+              <label htmlFor="date" className={styles["write-review__label"]}>
                 食べた日
-              </lebel>
+              </label>
               <input
                 id="date"
                 type="date"
                 name="date"
-                value=""
+                value={date}
                 className={styles["write-review__input"]}
-                onChange={() => {
-                  console.log("change");
+                onChange={(e) => {
+                  setDate(e.target.value);
                 }}
               />
             </div>
             <div className={styles["write-review__item"]}>
-              <lebel htmlFor="image" className={styles["write-review__label"]}>
+              <label htmlFor="image" className={styles["write-review__label"]}>
                 写真
-              </lebel>
+              </label>
               <input
                 id="image"
                 type="file"
                 name="image"
-                value=""
                 accept="image/jpeg, image/jpg, image/png"
                 className={styles["write-review__input"]}
-                onChange={() => {
-                  console.log("change");
+                onChange={(e) => {
+                  setImage(e.target.value);
                 }}
+                multiple
               />
             </div>
           </form>

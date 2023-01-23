@@ -11,6 +11,22 @@
 
   &__star {
     cursor: pointer;
+    display: block;
+    &::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-image: url("/img/icon_star.png");
+      background-size: contain;
+    }
+    &--filled {
+      @extend .write-review__star;
+      &::after {
+        content: "";
+        background-image: url("/img/icon_filled-star.png");
+      }
+    }
   }
 
   &__form {
@@ -24,6 +40,7 @@
   }
 
   &__label {
+    display: block;
     text-align: left;
     font-size: 1.4rem;
     width: 95px;

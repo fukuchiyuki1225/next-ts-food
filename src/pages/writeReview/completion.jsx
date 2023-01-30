@@ -9,10 +9,12 @@ const CompletionReview = (props) => {
   return (
     <div className={completionReview["completion-review"]}>
       <div className="item-box">
-        <div className="basic-inner">
-          <h2 className={completionReview["completion-review__title"]}>
-            投稿しました！
-          </h2>
+        <div className="item-box__inner">
+          <div className="basic-inner">
+            <h2 className={completionReview["completion-review__title"]}>
+              投稿しました！
+            </h2>
+          </div>
         </div>
       </div>
       <button

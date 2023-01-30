@@ -10,15 +10,19 @@ const ShopDetail = (props) => {
   return (
     <div className={styles["review-list"]}>
       <div className="item-box">
-        <Shop shop={shop}></Shop>
+        <div className="item-box__inner">
+          <Shop shop={shop}></Shop>
+        </div>
       </div>
       <div className="item-box">
-        <div className="basic-inner">
-          <h2 className={styles["review-list__title"]}>みんなの感想</h2>
-          <ul className={styles["review-list__list"]}>
-            <Review></Review>
-            <Review></Review>
-          </ul>
+        <div className="item-box__inner">
+          <div className="basic-inner">
+            <h2 className={styles["review-list__title"]}>みんなの感想</h2>
+            <ul className={styles["review-list__list"]}>
+              <Review></Review>
+              <Review></Review>
+            </ul>
+          </div>
         </div>
       </div>
       <button

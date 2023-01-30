@@ -9,19 +9,19 @@ const ShopList = (props) => {
       <ul>
         {shopList.map((shop) => {
           return (
-            <button
-              key={shop["id"]}
-              className="item-box"
-              onClick={() => {
-                router.push({
-                  pathname: `shops/${shop["id"]}`,
-                });
-              }}
-            >
-              <li key={shop["id"]}>
+            <li key={shop["id"]} className="item-box">
+              <button
+                className="item-box__inner"
+                key={shop["id"]}
+                onClick={() => {
+                  router.push({
+                    pathname: `shops/${shop["id"]}`,
+                  });
+                }}
+              >
                 <Shop shop={shop}></Shop>
-              </li>
-            </button>
+              </button>
+            </li>
           );
         })}
       </ul>

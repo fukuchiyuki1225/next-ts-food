@@ -19,46 +19,48 @@ const ConfirmReview = (props) => {
   return (
     <div className={confirmStyles["confirm-review"]}>
       <div className="item-box">
-        <div className="basic-inner">
-          <h2 className={confirmStyles["confirm-review__title"]}>
-            入力内容の確認
-          </h2>
-          <dl className={confirmStyles["confirm-review__dl"]}>
-            <div className={styles["write-review__item"]}>
-              <dt className={styles["write-review__label"]}>星</dt>
-              <dd className="star-container">
-                {starClass.map((name, index) => {
-                  return <div key={index} className={name}></div>;
-                })}
-              </dd>
-            </div>
-            <div className={styles["write-review__item"]}>
-              <dt className={styles["write-review__label"]}>タイトル</dt>
-              <dd className={styles["write-review__input"]}>{props.title}</dd>
-            </div>
-            <div className={styles["write-review__item"]}>
-              <dt className={styles["write-review__label"]}>表示名</dt>
-              <dd className={styles["write-review__input"]}>{props.name}</dd>
-            </div>
-            <div className={styles["write-review__item"]}>
-              <dt className={styles["write-review__label"]}>食べたごはん</dt>
-              <dd className={styles["write-review__input"]}>{props.food}</dd>
-            </div>
-            <div className={styles["write-review__item"]}>
-              <dt className={styles["write-review__label"]}>日付</dt>
-              <dd className={styles["write-review__input"]}>{props.date}</dd>
-            </div>
-            <div className={styles["write-review__item"]}>
-              <dt className={styles["write-review__label"]}>写真</dt>
-              <dd className={styles["write-review__input"]}>{props.image}</dd>
-            </div>
-            <div className={styles["write-review__item"]}>
-              <dt className={styles["write-review__label"]}>ごはんの感想</dt>
-              <dd className={styles["write-review__input"]}>
-                {props.textarea}
-              </dd>
-            </div>
-          </dl>
+        <div className="item-box__inner">
+          <div className="basic-inner">
+            <h2 className={confirmStyles["confirm-review__title"]}>
+              入力内容の確認
+            </h2>
+            <dl className={confirmStyles["confirm-review__dl"]}>
+              <div className={styles["write-review__item"]}>
+                <dt className={styles["write-review__label"]}>星</dt>
+                <dd className="star-container">
+                  {starClass.map((name, index) => {
+                    return <div key={index} className={name}></div>;
+                  })}
+                </dd>
+              </div>
+              <div className={styles["write-review__item"]}>
+                <dt className={styles["write-review__label"]}>タイトル</dt>
+                <dd className={styles["write-review__input"]}>{props.title}</dd>
+              </div>
+              <div className={styles["write-review__item"]}>
+                <dt className={styles["write-review__label"]}>表示名</dt>
+                <dd className={styles["write-review__input"]}>{props.name}</dd>
+              </div>
+              <div className={styles["write-review__item"]}>
+                <dt className={styles["write-review__label"]}>食べたごはん</dt>
+                <dd className={styles["write-review__input"]}>{props.food}</dd>
+              </div>
+              <div className={styles["write-review__item"]}>
+                <dt className={styles["write-review__label"]}>日付</dt>
+                <dd className={styles["write-review__input"]}>{props.date}</dd>
+              </div>
+              <div className={styles["write-review__item"]}>
+                <dt className={styles["write-review__label"]}>写真</dt>
+                <dd className={styles["write-review__input"]}>{props.image}</dd>
+              </div>
+              <div className={styles["write-review__item"]}>
+                <dt className={styles["write-review__label"]}>ごはんの感想</dt>
+                <dd className={styles["write-review__input"]}>
+                  {props.textarea}
+                </dd>
+              </div>
+            </dl>
+          </div>
         </div>
       </div>
       <button

@@ -5,7 +5,7 @@ const Shop = (props) => {
   const shop = props.shop;
   return (
     <div className={styles.shop}>
-      <div className={["basic-inner"]}>
+      <div className="basic-inner">
         <div className={styles["shop__top-contents"]}>
           <Image
             src={shop["photo"][0]["pc"][0]["l"][0]}

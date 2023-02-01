@@ -3,7 +3,7 @@ import styles from "./index.module.scss";
 import Image from "next/image";
 import Modal from "../modal";
 
-const Review = () => {
+const Review = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [openImg, setOpenImg] = useState("");
 
@@ -56,6 +56,35 @@ const Review = () => {
           <h3 className={styles.review__title}>おいしかった〜</h3>
         </div>
         <dl className={styles.review__dl}>
+          {props.myPage ? (
+            <div className={styles["review__icon-container"]}>
+              <button className={styles.review__edit}>
+                <Image
+                  src="/img/icon_edit.png"
+                  width={32}
+                  height={32}
+                  alt="編集"
+                  className={styles.review__icon}
+                ></Image>
+              </button>
+              <button
+                className={styles.review__delete}
+                onClick={() => {
+                  props.setIsDelete(true);
+                }}
+              >
+                <Image
+                  src="/img/icon_delete.png"
+                  width={32}
+                  height={32}
+                  alt="削除"
+                  className={styles.review__icon}
+                ></Image>
+              </button>
+            </div>
+          ) : (
+            ""
+          )}
           <div className={styles.review__item}>
             <dt className={styles.review__dt}>投稿者：</dt>
             <dd className={styles.review__dd}>ぶいまるさん</dd>

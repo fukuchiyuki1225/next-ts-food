@@ -8,6 +8,17 @@
     border-bottom: 1px solid #f08300;
   }
 
+  &__icon-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+  }
+
   &__top-container {
     display: flex;
     align-items: flex-start;

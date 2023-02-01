@@ -19,11 +19,54 @@
     }
   }
 
+  &__input {
+    border-bottom: 1px solid #b4b4b4;
+    color: #4b4b4b;
+  }
+
+  &__button {
+    color: #4b4b4b;
+    &--edit {
+      @extend .myPage__button;
+      margin-left: 5px;
+      padding: 1px 3px 2px 3px;
+      border-radius: 2px;
+      background-color: #e8e8e8;
+    }
+    &--nickname {
+      @extend .myPage__button;
+      position: relative;
+      width: fit-content;
+      padding-right: 20px;
+      &::after {
+        content: "";
+        width: 15px;
+        height: 15px;
+        background-image: url("/img/icon_edit.png");
+        background-size: contain;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
   &__nickname {
     margin-top: 18px;
   }
 
   &__review {
     margin-top: 18px;
+  }
+
+  &__modal {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }

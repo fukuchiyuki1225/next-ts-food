@@ -20,7 +20,7 @@ const ConfirmReview = (props) => {
     <div className={confirmStyles["confirm-review"]}>
       <div className="item-box">
         <div className="item-box__inner">
-          <div className="basic-inner">
+          <div className={`${confirmStyles["confirm-review"]} basic-inner`}>
             <h2 className={confirmStyles["confirm-review__title"]}>
               入力内容の確認
             </h2>

@@ -21,7 +21,7 @@ const Header = (props) => {
             height={128}
           />
         </div>
-        <div className={styles.header__loginContainer}>
+        <Link href="/login" className={styles.header__loginContainer}>
           <Image
             className={styles.header__loginIcon}
             src="/img/icon_login.png"
@@ -30,7 +30,7 @@ const Header = (props) => {
             height={128}
           />
           <p className={styles.header__loginText}>ログイン</p>
-        </div>
+        </Link>
       </div>
     </header>
   );

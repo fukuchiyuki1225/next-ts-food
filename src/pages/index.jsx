@@ -1,8 +1,14 @@
 import ShopList from "../components/shopList";
+import Search from "../components/search";
 
 export default function Home(props) {
   const shopList = props.result;
-  return <ShopList shopList={shopList}></ShopList>;
+  return (
+    <>
+      <Search></Search>
+      <ShopList shopList={shopList}></ShopList>
+    </>
+  );
 }
 
 export const getStaticProps = async () => {

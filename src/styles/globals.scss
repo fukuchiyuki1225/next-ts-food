@@ -20,11 +20,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: "Kiwi Maru", serif;
-  color: #4b4b4b;
-}
-
 *,
 ::before,
 ::after {
@@ -303,6 +298,16 @@ a {
   text-decoration: none;
 }
 
+.body {
+  margin: auto;
+  background-color: #fff3e8;
+  font-family: "Kiwi Maru", serif;
+  color: #4b4b4b;
+  @media screen and (min-width: 768px) {
+    max-width: 375px;
+  }
+}
+
 .basic-inner {
   margin: 0 auto;
   width: calc(340 / 375 * 100%);
@@ -315,10 +320,6 @@ a {
   &__inner {
     padding: 20px 0;
   }
-}
-
-body {
-  background-color: #fff3e8;
 }
 
 button {
@@ -342,7 +343,9 @@ button {
   padding: 5px;
   border-radius: 5px;
   box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.2);
-
+  @media screen and (min-width: 768px) {
+    max-width: 375px;
+  }
   &__text {
     font-size: 2rem;
     font-weight: 500;

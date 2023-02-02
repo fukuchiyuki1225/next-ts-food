@@ -60,7 +60,20 @@ const MyPage = () => {
       </div>
       {isDelete ? (
         <Modal>
-          <div className={styles["myPage__modal"]}>消しますか？</div>
+          <div className={styles.myPage__modal}>
+            <p className={styles.myPage__text}>感想を削除しますか？</p>
+            <div className={styles["myPage__button-container"]}>
+              <button className={styles["myPage__modal-button"]}>削除</button>
+              <button
+                className={styles["myPage__modal-button--cancel"]}
+                onClick={() => {
+                  setIsDelete(false);
+                }}
+              >
+                キャンセル
+              </button>
+            </div>
+          </div>
         </Modal>
       ) : (
         ""

@@ -1,12 +1,16 @@
 .header {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 999;
   width: 100%;
   background-color: rgba(#fff, 0.8);
   box-shadow: 0 5px 10px rgba(#000, 0.1);
   border-radius: 0 0 10px 10px;
+  @media screen and (min-width: 768px) {
+    max-width: 375px;
+  }
 
   &__inner {
     padding: 10px;

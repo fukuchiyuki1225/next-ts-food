@@ -61,12 +61,48 @@
   }
 
   &__modal {
-    width: 100px;
-    height: 100px;
+    width: calc(320 / 375 * 100%);
+    max-width: 320px;
+    height: 200px;
+    border-radius: 15px;
     background-color: #fff;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__text {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &__button-container {
+    display: flex;
+    gap: 15px;
+  }
+
+  &__modal-button {
+    width: 82px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f08300;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.4rem;
+    border-radius: 5px;
+    &--cancel {
+      @extend .myPage__modal-button;
+      background-color: #e8e8e8;
+      color: #4b4b4b;
+    }
   }
 }

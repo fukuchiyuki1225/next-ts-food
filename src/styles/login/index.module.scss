@@ -1,0 +1,16 @@
+.login {
+  &__inner {
+    padding: 20px;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

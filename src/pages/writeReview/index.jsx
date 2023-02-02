@@ -90,10 +90,10 @@ const WriteReview = (props) => {
               className={styles["write-review__form"]}
             >
               {msg.length !== 0 ? (
-                <div className={styles["write-review__msg-container"]}>
+                <div className="form__msg-container">
                   {msg.map((value, index) => {
                     return (
-                      <div key={index} className={styles["write-review__msg"]}>
+                      <div key={index} className="form__msg">
                         {value}
                       </div>
                     );
@@ -102,8 +102,8 @@ const WriteReview = (props) => {
               ) : (
                 ""
               )}
-              <div className={styles["write-review__item"]}>
-                <p className={styles["write-review__label"]}>星</p>
+              <div className="form__item">
+                <p className="form__label">星</p>
                 <div className="star-container">
                   <input
                     id="star1"
@@ -163,11 +163,8 @@ const WriteReview = (props) => {
                   <label htmlFor="star5" className={starClass[4]}></label>
                 </div>
               </div>
-              <div className={styles["write-review__item"]}>
-                <label
-                  htmlFor="title"
-                  className={styles["write-review__label"]}
-                >
+              <div className="form__item">
+                <label htmlFor="title" className="form__label">
                   タイトル
                 </label>
                 <input
@@ -176,14 +173,14 @@ const WriteReview = (props) => {
                   name="title"
                   value={title}
                   placeholder="感想をひとことで！"
-                  className={styles["write-review__input--title"]}
+                  className="form__input--title"
                   onChange={(e) => {
                     setTitle(e.target.value);
                   }}
                 />
               </div>
-              <div className={styles["write-review__item"]}>
-                <p className={styles["write-review__label"]}>投稿者名</p>
+              <div className="form__item">
+                <p className="form__label">投稿者名</p>
                 <input
                   id="username"
                   type="radio"
@@ -193,12 +190,9 @@ const WriteReview = (props) => {
                   onChange={(e) => {
                     setName(e.target.value);
                   }}
-                  className={styles["write-review__input--username"]}
+                  className="form__input--username"
                 />
-                <label
-                  htmlFor="username"
-                  className={styles["write-review__label--username"]}
-                >
+                <label htmlFor="username" className="form__label--username">
                   ユーザー名
                 </label>
                 <input
@@ -206,17 +200,14 @@ const WriteReview = (props) => {
                   type="radio"
                   name="name"
                   value="匿名"
-                  className={styles["write-review__input--username"]}
+                  className="form__input--username"
                 />
-                <label
-                  htmlFor="anonymous"
-                  className={styles["write-review__label--username"]}
-                >
+                <label htmlFor="anonymous" className="form__label--username">
                   匿名
                 </label>
               </div>
-              <div className={styles["write-review__item"]}>
-                <label htmlFor="food" className={styles["write-review__label"]}>
+              <div className="form__item">
+                <label htmlFor="food" className="form__label">
                   食べたごはん
                 </label>
                 <input
@@ -225,14 +216,14 @@ const WriteReview = (props) => {
                   name="food"
                   value={food}
                   placeholder="何を食べましたか？"
-                  className={styles["write-review__input--food"]}
+                  className="form__input--food"
                   onChange={(e) => {
                     setFood(e.target.value);
                   }}
                 />
               </div>
-              <div className={styles["write-review__item"]}>
-                <label htmlFor="date" className={styles["write-review__label"]}>
+              <div className="form__item">
+                <label htmlFor="date" className="form__label">
                   食べた日
                 </label>
                 <input
@@ -240,17 +231,14 @@ const WriteReview = (props) => {
                   type="date"
                   name="date"
                   value={date}
-                  className={styles["write-review__input"]}
+                  className="form__input"
                   onChange={(e) => {
                     setDate(e.target.value);
                   }}
                 />
               </div>
-              <div className={styles["write-review__item"]}>
-                <label
-                  htmlFor="image"
-                  className={styles["write-review__label"]}
-                >
+              <div className="form__item">
+                <label htmlFor="image" className="form__label">
                   写真
                 </label>
                 <input
@@ -258,24 +246,21 @@ const WriteReview = (props) => {
                   type="file"
                   name="image"
                   accept="image/jpeg, image/jpg, image/png"
-                  className={styles["write-review__input"]}
+                  className="form__input"
                   onChange={(e) => {
                     setImage(e.target.files);
                   }}
                   multiple
                 />
               </div>
-              <div className={styles["write-review__item"]}>
-                <label
-                  htmlFor="textarea"
-                  className={styles["write-review__label"]}
-                >
+              <div className="form__item">
+                <label htmlFor="textarea" className="form__label">
                   ごはんの感想
                 </label>
                 <textarea
                   id="textarea"
                   name="textarea"
-                  className={styles["write-review__input--textarea"]}
+                  className="form__input--textarea"
                   value={textarea}
                   onChange={(e) => {
                     setTextarea(e.target.value);

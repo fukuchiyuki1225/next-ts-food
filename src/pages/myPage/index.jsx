@@ -19,8 +19,10 @@ const MyPage = () => {
     <div className="item-box">
       <div className="item-box__inner">
         <div className="basic-inner">
-          <h2 className={styles.myPage__title}>ぶいまるさんのマイページ</h2>
-          <div className={styles.myPage__nickname}>
+          <h2 className={`${styles.myPage__title} heading-deco`}>
+            ぶいまるさんのマイページ
+          </h2>
+          <div className={`${styles.myPage__nickname} heading-deco`}>
             <h3 className={styles.myPage__heading}>
               {isEditNickname ? (
                 <>

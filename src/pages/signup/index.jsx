@@ -1,12 +1,14 @@
-import styles from "../../styles/login/index.module.scss";
-import Link from "next/link";
+import styles from "../../styles/signup/index.module.scss";
 
-const Login = () => {
+const Signup = () => {
   return (
-    <div className="login">
+    <div className="signup">
       <div className="item-box">
         <div className="basic-inner login__inner">
-          <h2 className="login__title">ログイン</h2>
+          <h2 className="login__title">新規登録</h2>
+          <p className="login__msg">
+            ※バイタリフィのメールアドレスのみ使用できます。
+          </p>
           <form className="form login__form" action="submit">
             <div className="form__item--column">
               <label className="form__label heading-deco" htmlFor="email">
@@ -34,11 +36,8 @@ const Login = () => {
             </div>
           </form>
           <button className="orange-button login__button">
-            <span className="orange-button__text">ログイン</span>
+            <span className="orange-button__text">新規登録</span>
           </button>
-          <Link href="/signup" className="white-button login__button">
-            <span className="white-button__text">新規登録はこちら</span>
-          </Link>
         </div>
       </div>
     </div>
@@ -46,7 +45,7 @@ const Login = () => {
 };
 
 export const getStaticProps = async () => {
-  return { props: { backTo: "/" } };
+  return { props: { backTo: "/login" } };
 };
 
-export default Login;
+export default Signup;

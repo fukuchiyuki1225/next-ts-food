@@ -496,3 +496,33 @@ input {
     border-radius: 10px;
   }
 }
+
+.login {
+  &__inner {
+    padding: 20px 0 30px;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__button {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  &__msg {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.4rem;
+    color: #b1221a;
+  }
+}

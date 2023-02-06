@@ -1,11 +1,12 @@
 import { useRouter } from "next/router";
 import Shop from "../shop";
+import styles from "./index.module.scss";
 
 const ShopList = (props) => {
   const shopList = props.shopList;
   const router = useRouter();
   return (
-    <ul>
+    <ul className={styles["shopList"]}>
       {shopList.map((shop) => {
         return (
           <li key={shop["id"]} className="item-box">

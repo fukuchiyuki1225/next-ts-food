@@ -1,0 +1,24 @@
+.sort {
+  position: fixed;
+  top: 66px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+
+  &__button {
+    border: 2px solid #f08300;
+    background-color: #fff;
+    border-radius: 32px;
+    padding: 0 10px;
+    font-size: 1.4rem;
+    height: 32px;
+    box-shadow: 0 5px 10px rgba(#000, 0.1);
+    &--active {
+      @extend .sort__button;
+      background-color: #f08300;
+      color: #fff;
+      font-weight: 600;
+    }
+  }
+}

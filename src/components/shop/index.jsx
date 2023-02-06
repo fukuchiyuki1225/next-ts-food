@@ -8,7 +8,7 @@ const Shop = (props) => {
       <div className="basic-inner">
         <div className={styles["shop__top-contents"]}>
           <Image
-            src={shop["photo"][0]["pc"][0]["l"][0]}
+            src={shop["photo"]["pc"]["l"]}
             width={238}
             height={238}
             alt={shop["name"]}
@@ -17,7 +17,7 @@ const Shop = (props) => {
           <div className={styles["shop__top-text"]}>
             <h2 className={styles.shop__name}>{shop["name"]}</h2>
             <h3 className={styles.shop__genre}>
-              {shop["genre"][0]["name"]} <br /> {shop["genre"][0]["catch"]}
+              {shop["genre"]["name"]} <br /> {shop["genre"]["catch"]}
             </h3>
           </div>
         </div>
@@ -54,11 +54,11 @@ const Shop = (props) => {
             </dt>
             <dd>
               <a
-                href={shop["urls"][0]["pc"]}
+                href={shop["urls"]["pc"]}
                 className={styles.shop__link}
                 target="_blank"
               >
-                {shop["urls"][0]["pc"]}
+                {shop["urls"]["pc"]}
               </a>
             </dd>
           </div>

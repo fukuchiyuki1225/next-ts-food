@@ -5,8 +5,8 @@
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
-  width: 100%;
-  max-width: 375px;
+  width: calc(345 / 375 * 100%);
+  max-width: 345px;
 
   &__button {
     border: 2px solid #f08300;

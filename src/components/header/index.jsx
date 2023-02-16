@@ -11,7 +11,7 @@ const Header = (props) => {
         ) : (
           ""
         )}
-        <div className={styles.header__titleContainer}>
+        <Link href="/" className={styles.header__titleContainer}>
           <h1 className={styles.header__text}>えびすごはん</h1>
           <Image
             className={styles.header__icon}
@@ -20,7 +20,7 @@ const Header = (props) => {
             width={128}
             height={128}
           />
-        </div>
+        </Link>
         <Link href="/login" className={styles.header__loginContainer}>
           <Image
             className={styles.header__loginIcon}

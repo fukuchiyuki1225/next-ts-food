@@ -2,6 +2,7 @@ import Shop from "../../components/shop";
 import Review from "../../components/review";
 import styles from "../../styles/shops/index.module.scss";
 import { useRouter } from "next/router";
+import { search } from "../../Utils";
 
 const ShopDetail = (props) => {
   const shop = props.shop[0];
@@ -58,18 +59,8 @@ const ShopDetail = (props) => {
 };
 
 export const getServerSideProps = async (context) => {
-  const url = `http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=82f1e6c8321eb67e&id=${context.query.id}`;
-  const res = await fetch(encodeURI(url));
-  const resText = await res.text();
-  const xml2js = require("xml2js");
-  let result = "";
-  xml2js.parseString(resText, (e, r) => {
-    if (e) {
-      console.log(e);
-    } else {
-      result = r["results"]["shop"];
-    }
-  });
+  const url = `http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=82f1e6c8321eb67e&id=${context.query.id}&format=json`;
+  const result = await search(url);
 
   return {
     props: {

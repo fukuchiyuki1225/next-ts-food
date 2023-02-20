@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     domains: ["imgfp.hotp.jp"],
   },
+  experimental: {
+    scrollRestoration: true,
+  },
 };
 
 module.exports = nextConfig;

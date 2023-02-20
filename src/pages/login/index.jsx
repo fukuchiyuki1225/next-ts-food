@@ -46,7 +46,7 @@ const Login = () => {
 };
 
 export const getStaticProps = async () => {
-  return { props: { backTo: "/" } };
+  return { props: { backTo: true } };
 };
 
 export default Login;

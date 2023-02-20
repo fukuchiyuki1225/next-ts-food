@@ -85,7 +85,7 @@ const MyPage = () => {
 };
 
 export const getStaticProps = async () => {
-  return { props: { backTo: "/" } };
+  return { props: { backTo: true } };
 };
 
 export default MyPage;

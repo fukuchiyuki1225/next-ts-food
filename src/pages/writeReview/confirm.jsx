@@ -116,7 +116,7 @@ export const getServerSideProps = (context) => {
       date: context.query.date,
       image: context.query.image,
       textarea: context.query.textarea,
-      backTo: "",
+      backTo: false,
     },
   };
 };

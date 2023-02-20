@@ -1,13 +1,20 @@
 import Image from "next/image";
 import styles from "./index.module.scss";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Header = (props) => {
+  const router = useRouter();
   return (
     <header className={styles.header}>
       <div className={styles.header__inner}>
-        {props.backTo !== "" ? (
-          <Link href={props.backTo} className={styles.header__back}></Link>
+        {props.backTo === true ? (
+          <button
+            onClick={() => {
+              router.back();
+            }}
+            className={styles.header__back}
+          ></button>
         ) : (
           ""
         )}

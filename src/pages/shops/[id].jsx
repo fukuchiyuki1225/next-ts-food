@@ -65,7 +65,7 @@ export const getServerSideProps = async (context) => {
   return {
     props: {
       shop: result,
-      backTo: "/",
+      backTo: true,
     },
   };
 };

@@ -21,7 +21,7 @@ const CompletionSignup = () => {
 };
 
 export const getStaticProps = async () => {
-  return { props: { backTo: "" } };
+  return { props: { backTo: false } };
 };
 
 export default CompletionSignup;

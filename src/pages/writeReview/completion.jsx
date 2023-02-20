@@ -38,7 +38,7 @@ export const getServerSideProps = (context) => {
   return {
     props: {
       id: context.query.id,
-      backTo: "",
+      backTo: false,
     },
   };
 };

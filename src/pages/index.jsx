@@ -28,5 +28,5 @@ export const getStaticProps = async () => {
   const url = `http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=82f1e6c8321eb67e&address=恵比寿&count=20&format=json`;
   const result = await search(url);
 
-  return { props: { shops: result, backTo: "" } };
+  return { props: { shops: result, backTo: false } };
 };

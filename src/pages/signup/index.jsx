@@ -45,7 +45,7 @@ const Signup = () => {
 };
 
 export const getStaticProps = async () => {
-  return { props: { backTo: "/login" } };
+  return { props: { backTo: true } };
 };
 
 export default Signup;

@@ -50,7 +50,6 @@ const WriteReview = (props) => {
     if (food.length === 0) {
       msg.push("食べたごはんを入力してください");
     }
-    console.log(textarea.length);
     if (textarea.length === 0) {
       msg.push("ごはんの感想を入力してください");
     }

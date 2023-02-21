@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Filter from "../filter";
 
-const Search = () => {
+const Search = (props) => {
   const [openFilter, setOpenFilter] = useState(false);
 
   return (
@@ -34,7 +34,7 @@ const Search = () => {
           </button>
         </div>
       </div>
-      <Filter openFilter={openFilter}></Filter>
+      <Filter openFilter={openFilter} genre={props.genre}></Filter>
     </div>
   );
 };

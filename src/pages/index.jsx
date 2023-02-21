@@ -15,11 +15,10 @@ export default function Home(props) {
     setGenre: setGenre,
     setHasLunch: setHasLunch,
   };
-  console.log(props.genre);
   return (
     <>
       <Sort setSort={setSort}></Sort>
-      <Search conditionsFunc={conditionsFunc}></Search>
+      <Search conditionsFunc={conditionsFunc} genre={props.genre}></Search>
       <ShopList shopList={shopList}></ShopList>
     </>
   );

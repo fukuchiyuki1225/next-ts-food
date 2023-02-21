@@ -306,6 +306,7 @@ a {
   @media screen and (min-width: 768px) {
     max-width: 375px;
     background-image: url("/img/bg_buimaru.png");
+    background-attachment: fixed;
     background-size: 300px auto;
     background-position: right 10px bottom 10px;
   }

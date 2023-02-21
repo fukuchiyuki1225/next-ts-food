@@ -1,7 +1,11 @@
 import styles from "./index.module.scss";
 import Image from "next/image";
+import { useState } from "react";
+import Filter from "../filter";
 
 const Search = () => {
+  const [openFilter, setOpenFilter] = useState(false);
+
   return (
     <div className={styles.search}>
       <div className="basic-inner">
@@ -15,7 +19,12 @@ const Search = () => {
               placeholder="ごはんを探す"
             />
           </div>
-          <button className={styles.search__mixer}>
+          <button
+            className={styles.search__mixer}
+            onClick={() => {
+              setOpenFilter(!openFilter);
+            }}
+          >
             <Image
               src="/img/icon_mixer.png"
               width={35}
@@ -25,6 +34,7 @@ const Search = () => {
           </button>
         </div>
       </div>
+      <Filter openFilter={openFilter}></Filter>
     </div>
   );
 };

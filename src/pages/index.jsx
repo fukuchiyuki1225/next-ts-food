@@ -15,6 +15,7 @@ export default function Home(props) {
     setGenre: setGenre,
     setHasLunch: setHasLunch,
   };
+  console.log(props.genre);
   return (
     <>
       <Sort setSort={setSort}></Sort>
@@ -25,8 +26,13 @@ export default function Home(props) {
 }
 
 export const getStaticProps = async () => {
-  const url = `http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=82f1e6c8321eb67e&address=恵比寿&count=20&format=json`;
-  const result = await search(url);
+  const gourmetUrl = `http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=82f1e6c8321eb67e&address=恵比寿&count=20&format=json`;
+  const gourmetResult = await search(gourmetUrl);
 
-  return { props: { shops: result, backTo: false } };
+  const genreUrl = `http://webservice.recruit.co.jp/hotpepper/genre/v1/?key=82f1e6c8321eb67e&format=json`;
+  const res = await fetch(encodeURI(genreUrl));
+  const resJson = await res.json();
+  const genreResult = resJson["results"]["genre"];
+
+  return { props: { shops: gourmetResult, genre: genreResult, backTo: false } };
 };
